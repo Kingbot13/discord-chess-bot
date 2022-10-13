@@ -1,22 +1,16 @@
-/* 
-    convert string to array of objects
-
-    1. remove numerical characters
-    2. add quote to object ex. {quote: "quote"}
-    3. add author to quote obj ex. {quote: "quote", author: "Jim"}
-    4. push obj to array
-    5. return array of objects
-
-    normalizeQuotes(str) {
-        str.replaceAll(/[0-9]/, '');
-        numerical characters removed
-        str.split '"';
-        quotes should be on even numbered indexes
-        loop {
-            if index === even number
-                array.push({quote: index, author: index + 1})
-        }
-        return array
+function normalizeQuotes(str) {
+  const cleanStr = str.replaceAll(/[0-9()\s]/gi, "").trim(); // remove numerical characters, parantheses, and whitespace
+  const arr = cleanStr.split('"');
+  arr.shift(); // important because first index in arr is an empty string
+  const objArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 === 0) {
+      objArr.push({ quote: arr[i], author: arr[i + 1] });
+    } else {
+      continue;
     }
+  }
+  return objArr;
+}
 
-*/
+module.exports = normalizeQuotes;
