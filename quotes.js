@@ -1,4 +1,4 @@
-01                                                                                                                                                          “When you see a good move, look for a better one”
+const quotes = `01                                                                                                                                                          “When you see a good move, look for a better one”
 
 (Emanuel Lasker)
 
@@ -2512,4 +2512,6 @@ can be as materialistic as I want without having to sell my soul ”
 
 “Chess isn’t a game of speed, it is a game of speech through actions”
 
-(Matthew Selman)
+(Matthew Selman)`;
+
+module.exports = quotes;
